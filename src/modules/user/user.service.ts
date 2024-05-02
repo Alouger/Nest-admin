@@ -35,4 +35,8 @@ export class UserService {
   remove(id: number): Promise<DeleteResult> {
     return this.userRepository.delete(id);
   }
+
+  findByUsername(username: string): Promise<User> {
+    return this.userRepository.findOneBy({ username });
+  }
 }
