@@ -5,6 +5,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './auth.guard';
 import { UserModule } from '../user/user.module';
 import { JwtModule } from '@nestjs/jwt';
+import { JWT_SECRET_KEY } from './auth.jwt.secret';
 
 @Module({
   imports: [
@@ -13,7 +14,7 @@ import { JwtModule } from '@nestjs/jwt';
       // 表示JWT模块的配置应应用于整个应用，而非仅限于当前模块。
       global: true,
       // 用于生成JWT token的第三段的私钥
-      secret: 'abcdefg',
+      secret: JWT_SECRET_KEY,
       // 设置token过期时间，在此设置为24小时过期
       signOptions: { expiresIn: 24 * 60 * 60 + 's' },
     }),

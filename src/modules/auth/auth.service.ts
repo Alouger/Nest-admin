@@ -14,8 +14,6 @@ export class AuthService {
     const user = await this.userService.findByUsername(username);
     const md5Password = md5(password).toUpperCase();
 
-    console.log(user, md5Password);
-
     if (user.password !== md5Password) {
       // 如果两者不相等，要抛出异常
       throw new UnauthorizedException('密码错误');
