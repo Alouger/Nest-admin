@@ -14,14 +14,14 @@ export function getMysqlUsernameAndPassword() {
 export function success(data, msg) {
   return {
     code: 0,
-    data,
-    msg,
+    result: data,
+    message: msg,
   };
 }
 
 export function error(msg) {
   return {
     code: -1,
-    msg,
+    message: msg,
   };
 }
